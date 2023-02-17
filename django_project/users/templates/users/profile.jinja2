@@ -1,7 +1,10 @@
 {% extends 'blog/base.jinja2' %}
+{% load crispy_forms_tags %}
 {% block content %}
   <div class="account border rounded p-3 mb-3">
     <div class="account-card d-flex align-items-center flex-column flex-sm-row mb-3">
+      <img src="{{ user.profile.image.url }}"
+           class="img-fluid rounded-circle me-sm-4 mb-3 mb-sm-0">
       <div>
         <h5 class="card-title">{{ user.username }}</h5>
         <p class="card-text">

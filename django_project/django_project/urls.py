@@ -19,7 +19,8 @@ from django.urls import path, include
 
 # from django.contrib.auth.views import LoginView
 from django.contrib import messages
-from django.urls import reverse_lazy
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 class MyLoginView(auth_views.LoginView):
@@ -36,8 +37,12 @@ urlpatterns = [
     path("blog/", include('blog.urls')),
     path("login/", MyLoginView.as_view(template_name='users/login.jinja2'),
          name='user-login'),
-    path("logout/", MyLoginView.as_view(template_name='users/logout.jinja2'),
+    path("logout/", auth_views.LogoutView.as_view(template_name='users/logout.jinja2'),
          name='user-logout'),
     path("", include('blog.urls')),
     path("", include('users.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
