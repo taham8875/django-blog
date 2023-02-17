@@ -12,5 +12,16 @@
         </p>
       </div>
     </div>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <fieldset class="from-group">
+        <legend>
+          Update Profile Info
+        </legend>
+        {{ user_update_form|crispy }}
+        {{ profile_update_form|crispy }}
+      </fieldset>
+      <button class="update-account-submit btn btn-primary" type="submit">Update</button>
+    </form>
   </div>
 {% endblock content %}

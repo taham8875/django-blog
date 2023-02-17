@@ -3,7 +3,9 @@
   {% for post in posts %}
     <div class="post border rounded p-3 mb-3">
       <div class="post-card d-flex align-items-center flex-row  mb-3">
-        <img src=" " class="img-fluid rounded-circle me-4 " alt="profile pic">
+        <img src=" {{ post.author.profile.image.url }} "
+             class="img-fluid rounded-circle me-4 "
+             alt="profile pic">
         <div>
           <div class="card-text">
             <p class="mb-0">
