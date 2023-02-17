@@ -1,0 +1,7 @@
+{% extends 'blog/base.jinja2' %}
+{% block content %}
+    <h2>You have been logged out</h2>
+    <div class="content-section col-12 col-md-6 col-lg-4">
+        <a class="link-primary" href="{% url 'user-login' %}">Log in again</a>
+    </div>
+{% endblock content %}

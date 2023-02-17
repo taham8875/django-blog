@@ -14,11 +14,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import path, include
+
+# from django.contrib.auth.views import LoginView
+from django.contrib import messages
+from django.urls import reverse_lazy
+
+
+class MyLoginView(auth_views.LoginView):
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated and 'next' in request.GET:
+            messages.warning(
+                request, 'You must log in first.')
+        return super().get(request, *args, **kwargs)
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("blog/", include('blog.urls')),
+    path("login/", MyLoginView.as_view(template_name='users/login.jinja2'),
+         name='user-login'),
+    path("logout/", MyLoginView.as_view(template_name='users/logout.jinja2'),
+         name='user-logout'),
     path("", include('blog.urls')),
     path("", include('users.urls')),
 ]

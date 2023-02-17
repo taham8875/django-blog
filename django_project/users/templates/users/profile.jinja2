@@ -1,0 +1,13 @@
+{% extends 'blog/base.jinja2' %}
+{% block content %}
+  <div class="account border rounded p-3 mb-3">
+    <div class="account-card d-flex align-items-center flex-column flex-sm-row mb-3">
+      <div>
+        <h5 class="card-title">{{ user.username }}</h5>
+        <p class="card-text">
+          <small class="text-muted">{{ user.email }}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
