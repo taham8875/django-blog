@@ -11,7 +11,7 @@
             <p class="mb-0">
               <a href=" ">{{ post.author }}</a>
             </p>
-            <small><a class="text-muted" href=" ">{{ post.date_posted|date:"F d, Y" }}</a></small>
+            <small><a class="text-muted" href="{% url 'post-detail' post.id %}">{{ post.date_posted|date:"F d, Y" }}</a></small>
           </div>
         </div>
       </div>

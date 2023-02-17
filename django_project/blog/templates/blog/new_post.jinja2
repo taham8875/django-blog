@@ -1,0 +1,16 @@
+{% extends 'blog/base.jinja2' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="content-section col-12 col-md-6 col-lg-4">
+    <form action="" method="post">
+      {% csrf_token %}
+      <fieldset class="from-group">
+        <legend>
+          What do you think ?
+        </legend>
+        {{ form|crispy }}
+      </fieldset>
+      <button class="btn btn-primary" type="submit">Post</button>
+    </form>
+  </div>
+{% endblock content %}
