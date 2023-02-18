@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 
-# from django.contrib.auth.views import LoginView
 from django.contrib import messages
 from django.conf import settings
 from django.conf.urls.static import static
@@ -39,6 +38,14 @@ urlpatterns = [
          name='user-login'),
     path("logout/", auth_views.LogoutView.as_view(template_name='users/logout.jinja2'),
          name='user-logout'),
+    path("password-reset/", auth_views.PasswordResetView.as_view(template_name='users/password_reset.jinja2'),
+         name='password_reset'),
+    path("password-reset/done/", auth_views.PasswordResetDoneView.as_view(template_name='users/password_reset_done.jinja2'),
+         name='password_reset_done'),
+    path("password-reset-confirm/<uidb64>/<token>/", auth_views.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.jinja2'),
+         name='password_reset_confirm'),
+    path("password-reset-complete/", auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.jinja2'),
+         name='password_reset_complete'),
     path("", include('blog.urls')),
     path("", include('users.urls')),
 ]
