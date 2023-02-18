@@ -7,8 +7,10 @@
            alt="profile pic">
       <div>
         <div class="card-text">
-          <p class="mb-0">{{ post.author.username }}</p>
-          <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+          <p class="mb-0">
+            <a href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+          </p>
+          <small><a class="text-muted" href="{% url 'post-detail' post.id %}">{{ post.date_posted|date:"F d, Y" }}</a></small>
         </div>
       </div>
       {% if user == post.author %}
