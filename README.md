@@ -8,7 +8,11 @@ Hello there, this is my hello world django application, a blog app.
 
 # Demo
 
-<video src="README/video.mp4"></video>
+
+https://user-images.githubusercontent.com/92264237/219882224-3e114063-471b-4f2a-b4b4-d78b7e989b06.mp4
+
+
+
 
 # Features
 
