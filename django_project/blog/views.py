@@ -8,6 +8,7 @@ from django.views.generic import (ListView,
                                   DeleteView)
 from blog.models import Post
 from django.contrib.auth.models import User
+from django.template import RequestContext
 # Create your views here.
 
 
@@ -75,3 +76,15 @@ class PostDeleteView(UserPassesTestMixin, LoginRequiredMixin, SuccessMessageMixi
 
 def about(request):
     return render(request, 'blog/about.jinja2', context={'title': 'about'})
+
+
+def handler404(request, *args, **argv):
+    return render(request, '404.jinja2', status=404)
+
+
+def handler403(request, *args, **argv):
+    return render(request, '403.jinja2', status=403)
+
+
+def handler500(request, *args, **argv):
+    return render(request, '500.jinja2', status=500)

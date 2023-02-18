@@ -1,0 +1,14 @@
+{% extends "blog/base.jinja2" %}
+{% load static %}
+{% block content %}
+    <div class="text-center border rounded p-3">
+        <h3 class="mb-5">500 &#183; Not Found</h3>
+        <img class="mb-5 img-fluid"
+             src="{% static 'blog/500s.jpg' %}"
+             alt=""
+             srcset="">
+        <p class="fs-4">
+            The server encountered an internal error or misconfiguration and was unable to complete your request.
+        </p>
+    </div>
+{% endblock content %}
